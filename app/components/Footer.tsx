@@ -1,3 +1,7 @@
 export function Footer() {
-  return <footer>© {new Date().getFullYear()} Morgan Smith</footer>;
+  return (
+    <footer className="container py-4">
+      © {new Date().getFullYear()} Morgan Smith
+    </footer>
+  );
 }

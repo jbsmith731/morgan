@@ -1,9 +1,43 @@
 @import 'tailwindcss' source('.');
 
+@font-face {
+  font-family: 'Mori';
+  src: url('/fonts/PPMori-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mori';
+  src: url('/fonts/PPMori-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mori';
+  src: url('/fonts/PPMori-Extrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Right Serif';
+  src: url('/fonts/PPRightSerif-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans:
-    ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+    'Mori', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif:
+    'Right Serif', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
   /* Accent scale */
   --color-accent-50: #f3f5fd;
@@ -86,6 +120,13 @@
   --color-ds-border-default: var(--color-slate-200);
   --color-ds-border-strong: var(--color-slate-300);
   --color-ds-border-focus: var(--color-accent-500);
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto;
+    max-width: min(100vw - (var(--spacing) * 6), 1200px);
+  }
 }
 
 html,

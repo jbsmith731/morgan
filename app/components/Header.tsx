@@ -1,3 +1,3 @@
 export function Header() {
-  return <header>Morgan Smith</header>;
+  return <header className="container py-4">Morgan Smith</header>;
 }

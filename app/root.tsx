@@ -11,6 +11,25 @@ import './app.css';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 
+export function links() {
+  return [
+    {
+      rel: 'preload',
+      href: '/fonts/PPMori-Regular.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous',
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/PPRightSerif-Light.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous',
+    },
+  ];
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

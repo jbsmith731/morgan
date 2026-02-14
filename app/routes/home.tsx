@@ -1,9 +1,9 @@
-import type { Route } from "./+types/home";
+import type { Route } from './+types/home';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: 'New React Router App' },
+    { name: 'description', content: 'Welcome to React Router!' },
   ];
 }
 
@@ -13,8 +13,8 @@ export function loader({ context }: Route.LoaderArgs) {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
-    <main>
-      <h1>{loaderData.message}</h1>
+    <main className="container">
+      <h1 className="font-serif text-4xl">{loaderData.message}</h1>
     </main>
   );
 }
