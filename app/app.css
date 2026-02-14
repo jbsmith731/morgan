@@ -1,35 +1,94 @@
-@import "tailwindcss" source(".");
+@import 'tailwindcss' source('.');
 
 @theme {
   --font-sans:
-    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+    ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Accent scale */
+  --color-accent-50: #f3f5fd;
+  --color-accent-100: #e4e8f7;
+  --color-accent-200: #cbd3ee;
+  --color-accent-300: #a9b6e1;
+  --color-accent-400: #7f94d0;
+  --color-accent-500: #546abb; /* original */
+  --color-accent-600: #465aa3;
+  --color-accent-700: #3a4c89;
+  --color-accent-800: #303f6f;
+  --color-accent-900: #273357;
+
+  /* Neutral scale */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --color-red-50: #fef4f5;
+  --color-red-100: #fde8ea;
+  --color-red-200: #f9cbcd;
+  --color-red-300: #f3a2a7;
+  --color-red-400: #ea6f76;
+  --color-red-500: #de4c55;
+  --color-red-600: #c93b43;
+  --color-red-700: #a83238;
+  --color-red-800: #8a2b30;
+  --color-red-900: #6e2327;
+
+  --color-orange-50: #fff7f1;
+  --color-orange-100: #feecdc;
+  --color-orange-200: #fdd6b3;
+  --color-orange-300: #fabd86;
+  --color-orange-400: #f59b55;
+  --color-orange-500: #ed7f2d;
+  --color-orange-600: #d66a22;
+  --color-orange-700: #b0551d;
+  --color-orange-800: #8d451b;
+  --color-orange-900: #713818;
+
+  --color-green-50: #f2faf6;
+  --color-green-100: #e1f3ea;
+  --color-green-200: #bfe6d3;
+  --color-green-300: #8ed1b2;
+  --color-green-400: #5fb88e;
+  --color-green-500: #3e9f73;
+  --color-green-600: #318460;
+  --color-green-700: #286b4f;
+  --color-green-800: #215743;
+  --color-green-900: #1c4637;
 
   /* Accent */
-  --color-accent: #546abb;
-  --color-accent-hover: #465aa3;
-  --color-accent-subtle: #e4e8f7;
+  --color-ds-accent: var(--color-accent-500);
+  --color-ds-accent-hover: var(--color-accent-600);
+  --color-ds-accent-subtle: var(--color-accent-100);
+  --color-ds-accent-muted: var(--color-accent-200);
+  --color-ds-accent-foreground: #f8fafc;
 
-  /* Typography */
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #334155;
-  --color-text-muted: #64748b;
-  --color-text-disabled: #94a3b8;
-  --color-text-inverse: #f8fafc;
+  /* Text */
+  --color-ds-text-primary: var(--color-slate-900);
+  --color-ds-text-secondary: var(--color-slate-700);
+  --color-ds-text-muted: var(--color-slate-500);
+  --color-ds-text-disabled: var(--color-slate-400);
+  --color-ds-text-inverse: var(--color-slate-50);
 
-  /* Backgrounds & surfaces */
-  --color-surface-app: #f8fafc;
-  --color-surface-base: #ffffff;
-  --color-surface-subtle: #f1f5f9;
-  --color-surface-raised: #e9eef6;
+  /* Backgrounds */
+  --color-ds-surface-app: var(--color-slate-50);
+  --color-ds-surface-base: #ffffff;
+  --color-ds-surface-subtle: var(--color-slate-100);
+  --color-ds-surface-raised: #e9eef6;
 
   /* Borders */
-  --color-border-default: #e2e8f0;
-  --color-border-strong: #cbd5e1;
-  --color-border-focus: #546abb;
+  --color-ds-border-default: var(--color-slate-200);
+  --color-ds-border-strong: var(--color-slate-300);
+  --color-ds-border-focus: var(--color-accent-500);
 }
 
 html,
 body {
-  @apply bg-surface-app text-text-primary;
+  @apply bg-ds-surface-app text-ds-text-primary;
 }
