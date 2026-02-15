@@ -14,7 +14,7 @@ export const button = tv({
       ghost: 'bg-transparent text-ds-text-primary hover:bg-ds-surface-subtle',
     },
     size: {
-      sm: 'px-4 h-8 text-[11px]',
+      sm: 'px-3.5 h-8 text-[11px]',
       md: 'px-6 h-11 text-xs',
     },
   },
