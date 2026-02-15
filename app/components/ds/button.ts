@@ -3,7 +3,7 @@ import { tv } from 'tailwind-variants';
 export const button = tv({
   base: [
     'inline-flex items-center justify-center rounded-full',
-    'uppercase tracking-wider font-medium transition-colors',
+    'uppercase tracking-wider font-semibold transition-colors',
   ],
   variants: {
     variant: {

@@ -1,3 +1,4 @@
+import { heading } from '~/components/ds/text';
 import type { Route } from './+types/home';
 
 export function meta({}: Route.MetaArgs) {
@@ -14,7 +15,7 @@ export function loader({ context }: Route.LoaderArgs) {
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <main className="container">
-      <h1 className="font-serif text-4xl">{loaderData.message}</h1>
+      <h1 className={heading({ level: '1' })}>{loaderData.message}</h1>
     </main>
   );
 }
