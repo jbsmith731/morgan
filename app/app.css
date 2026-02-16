@@ -138,3 +138,7 @@ button,
 a {
   @apply cursor-pointer;
 }
+
+::selection {
+  @apply bg-indigo-200;
+}

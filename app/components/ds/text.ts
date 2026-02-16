@@ -27,21 +27,21 @@ export const copy = tv({
   },
 });
 
-export function lede(args: Parameters<typeof copy>[0]) {
-  return copy({ size: 'lg', color: 'secondary', ...args });
+export function lede(args?: Parameters<typeof copy>[0]) {
+  return copy({ size: 'lg', color: 'muted', ...args });
 }
 
 export const heading = tv({
   base: 'font-serif text-ds-text-primary',
   variants: {
     level: {
-      mega: 'text-5xl',
-      '1': 'text-[3.5rem]',
-      '2': 'text-[2.5rem]',
-      '3': 'text-[2rem]',
-      '4': 'text-2xl',
-      '5': 'text-xl font-sans font-extrabold',
-      '6': 'text-base font-sans font-extrabold uppercase tracking-wide',
+      mega: 'text-[5rem] leading-none',
+      '1': 'text-[3.5rem] leading-none',
+      '2': 'text-[2.5rem] leading-tight',
+      '3': 'text-[2rem] leading-snug',
+      '4': 'text-2xl leading-snug',
+      '5': 'text-xl font-sans font-extrabold leading-snug',
+      '6': 'text-base font-sans font-extrabold uppercase tracking-wide leading-snug',
     },
   },
   defaultVariants: {
