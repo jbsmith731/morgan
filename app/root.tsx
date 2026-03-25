@@ -8,6 +8,7 @@ import {
 } from 'react-router';
 import type { Route } from './+types/root';
 import './app.css';
+import { Background } from './components/Background';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 
@@ -40,9 +41,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="grid grid-rows-[auto_1fr_auto] min-h-screen h-full">
-        <Header />
-        {children}
-        <Footer />
+        <Background>
+          <Header />
+          {children}
+          <Footer />
+        </Background>
         <ScrollRestoration />
         <Scripts />
       </body>
