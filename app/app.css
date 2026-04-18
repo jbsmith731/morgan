@@ -124,8 +124,8 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto;
-    max-width: min(100vw - (var(--spacing) * 6), 1200px);
+    @apply mx-auto w-auto;
+    max-width: min(theme(maxWidth.7xl), 100vw - theme(spacing.10));
   }
 }
 
