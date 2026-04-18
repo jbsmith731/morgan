@@ -1,3 +1,4 @@
+import type { AnyFieldApi } from '@tanstack/react-form';
 import { twMerge } from 'tailwind-merge';
 
 export function FieldRoot({
@@ -22,5 +23,20 @@ export function FieldLabel({
     >
       {children}
     </label>
+  );
+}
+
+export function FieldInfo({ field }: { field: AnyFieldApi }) {
+  const { isTouched, isValid, errors, isValidating } = field.state.meta;
+  return (
+    <>
+      {isTouched && !isValid ? (
+        <small className="text-ds-text-error font-medium text-sm">
+          {errors.map((err) => err.message).join(',')}
+        </small>
+      ) : null}
+
+      {isValidating ? 'Validating...' : null}
+    </>
   );
 }

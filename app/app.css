@@ -109,6 +109,7 @@
   --color-ds-text-muted: var(--color-slate-500);
   --color-ds-text-disabled: var(--color-slate-400);
   --color-ds-text-inverse: var(--color-slate-50);
+  --color-ds-text-error: var(--color-red-500);
 
   /* Backgrounds */
   --color-ds-surface-app: var(--color-slate-50);

@@ -1,18 +1,9 @@
 import { twMerge } from 'tailwind-merge';
+import { inputBase } from '../styles/input';
 
 export function Textarea({
   className,
   ...rest
 }: React.ComponentPropsWithoutRef<'textarea'>) {
-  return (
-    <textarea
-      className={twMerge(
-        'p-2 text-base rounded-lg',
-        'border border-ds-border-strong',
-        'focus:outline-none focus:ring-2 focus:ring-ds-accent focus:border-transparent',
-        className,
-      )}
-      {...rest}
-    />
-  );
+  return <textarea className={twMerge(...inputBase, className)} {...rest} />;
 }
