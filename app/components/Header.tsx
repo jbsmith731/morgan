@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { button } from './ds/button';
 import { copy } from './ds/text';
 
@@ -9,12 +10,12 @@ export function Header() {
           Morgan Smith
         </span>
 
-        <a
-          href="mailto:example@example.com"
+        <Link
+          to="/contact"
           className={button({ variant: 'outline', size: 'sm' })}
         >
           Contact
-        </a>
+        </Link>
       </div>
     </header>
   );

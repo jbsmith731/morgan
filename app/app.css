@@ -119,13 +119,13 @@
   /* Borders */
   --color-ds-border-default: var(--color-slate-200);
   --color-ds-border-strong: var(--color-slate-300);
-  --color-ds-border-focus: var(--color-indigo-500);
+  --color-ds-border-focus: var(--color-ds-accent);
 }
 
 @layer utilities {
   .container {
     @apply mx-auto w-auto;
-    max-width: min(theme(maxWidth.7xl), 100vw - theme(spacing.10));
+    width: min(theme(maxWidth.7xl), 100vw - theme(spacing.10));
   }
 }
 
