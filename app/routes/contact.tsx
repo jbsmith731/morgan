@@ -1,6 +1,9 @@
 import { formOptions, useForm } from '@tanstack/react-form';
-import { createServerValidate } from '@tanstack/react-form-remix';
-import { Form } from 'react-router';
+import {
+  createServerValidate,
+  ServerValidateError,
+} from '@tanstack/react-form-remix';
+import { data, Form } from 'react-router';
 import z from 'zod';
 import { button } from '~/components/ds/button';
 import { FieldInfo, FieldLabel, FieldRoot } from '~/components/ds/Field';
@@ -14,12 +17,15 @@ export async function action({ request }: Route.ActionArgs) {
 
   try {
     const validated = await serverValidate(formData);
-    console.log({ validated });
-    // Handle successful form submission (e.g., send email, save to database, etc.)
-    return new Response('Form submitted successfully', { status: 200 });
+
+    return data(validated);
   } catch (error) {
-    console.dir({ error }, { depth: null });
     // Handle validation errors
+
+    if (error instanceof ServerValidateError) {
+      return data(error.formState, { status: 400 });
+    }
+
     return new Response('Form submission failed', { status: 400 });
   }
 }
@@ -33,12 +39,12 @@ export default function Contact() {
   });
 
   return (
-    <main className="container py-20">
+    <main className="constrain py-20">
       <title>Contact</title>
 
       <div className="grid gap-8 md:grid-cols-2">
         <div className="grid gap-2 self-start">
-          <h1 className={heading({ level: '2' })}>Contact</h1>
+          <h1 className={heading({ level: '1' })}>Contact</h1>
           <p className={copy({ className: 'max-w-[40ch]' })}>
             If you have any questions or would like to get in touch, please fill
             out blah blah blah. Lorem ipsum dolor sit amet, consectetur
@@ -71,7 +77,7 @@ export default function Contact() {
                   <Input
                     {...getInputProps(field)}
                     type="email"
-                    placeholder="jane.doe@example.com"
+                    placeholder="jane.doe@acme.com"
                   />
                   <FieldInfo field={field} />
                 </FieldRoot>

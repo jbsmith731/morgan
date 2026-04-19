@@ -123,11 +123,9 @@
   --color-ds-border-focus: var(--color-ds-accent);
 }
 
-@layer utilities {
-  .container {
-    @apply mx-auto w-auto;
-    width: min(theme(maxWidth.7xl), 100vw - theme(spacing.10));
-  }
+@utility constrain {
+  @apply mx-auto;
+  width: min(75rem, 100vw - theme(spacing.10));
 }
 
 html,

@@ -15,7 +15,7 @@ export function loader({ context }: Route.LoaderArgs) {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
-    <main className="container place-self-center grid items-center justify-center text-center gap-4">
+    <main className="constrain place-self-center grid items-center justify-center text-center gap-4">
       <section className="py-20 grid gap-5">
         <div className="grid gap-2">
           <h1 className={heading({ level: 'mega' })}>{loaderData.message}</h1>
