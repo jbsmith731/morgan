@@ -1,20 +1,28 @@
+import { Link } from 'react-router';
 import { button } from './ds/button';
 import { copy } from './ds/text';
 
 export function Header() {
   return (
     <header>
-      <div className="container py-4 sm:py-5 flex items-center justify-between">
-        <span className={copy({ weight: 'bold', color: 'primary' })}>
+      <div className="constrain py-4 sm:py-5 flex items-center justify-between">
+        <Link
+          to="/"
+          className={copy({
+            weight: 'bold',
+            color: 'primary',
+            className: 'hover:text-ds-accent transition-colors',
+          })}
+        >
           Morgan Smith
-        </span>
+        </Link>
 
-        <a
-          href="mailto:example@example.com"
+        <Link
+          to="/contact"
           className={button({ variant: 'outline', size: 'sm' })}
         >
           Contact
-        </a>
+        </Link>
       </div>
     </header>
   );

@@ -109,6 +109,7 @@
   --color-ds-text-muted: var(--color-slate-500);
   --color-ds-text-disabled: var(--color-slate-400);
   --color-ds-text-inverse: var(--color-slate-50);
+  --color-ds-text-error: var(--color-red-500);
 
   /* Backgrounds */
   --color-ds-surface-app: var(--color-slate-50);
@@ -119,14 +120,12 @@
   /* Borders */
   --color-ds-border-default: var(--color-slate-200);
   --color-ds-border-strong: var(--color-slate-300);
-  --color-ds-border-focus: var(--color-indigo-500);
+  --color-ds-border-focus: var(--color-ds-accent);
 }
 
-@layer utilities {
-  .container {
-    @apply mx-auto w-auto;
-    max-width: min(theme(maxWidth.7xl), 100vw - theme(spacing.10));
-  }
+@utility constrain {
+  @apply mx-auto;
+  width: min(75rem, 100vw - theme(spacing.10));
 }
 
 html,
