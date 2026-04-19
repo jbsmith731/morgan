@@ -6,9 +6,16 @@ export function Header() {
   return (
     <header>
       <div className="constrain py-4 sm:py-5 flex items-center justify-between">
-        <span className={copy({ weight: 'bold', color: 'primary' })}>
+        <Link
+          to="/"
+          className={copy({
+            weight: 'bold',
+            color: 'primary',
+            className: 'hover:text-ds-accent transition-colors',
+          })}
+        >
           Morgan Smith
-        </span>
+        </Link>
 
         <Link
           to="/contact"
