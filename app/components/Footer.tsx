@@ -1,4 +1,4 @@
-import { copy } from './ds/text';
+import { copy } from './styles/text';
 
 export function Footer() {
   return (

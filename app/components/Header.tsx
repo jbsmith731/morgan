@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
-import { button } from './ds/button';
-import { copy } from './ds/text';
+import { button } from './styles/button';
+import { copy } from './styles/text';
 
 export function Header() {
   return (

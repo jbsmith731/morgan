@@ -5,11 +5,11 @@ import {
 } from '@tanstack/react-form-remix';
 import { data, Form } from 'react-router';
 import z from 'zod';
-import { button } from '~/components/ds/button';
 import { FieldInfo, FieldLabel, FieldRoot } from '~/components/ds/Field';
 import { getInputProps, Input } from '~/components/ds/Input';
-import { copy, heading } from '~/components/ds/text';
 import { Textarea } from '~/components/ds/Textarea';
+import { button } from '~/components/styles/button';
+import { copy, heading } from '~/components/styles/text';
 import type { Route } from './+types/contact';
 
 export async function action({ request }: Route.ActionArgs) {

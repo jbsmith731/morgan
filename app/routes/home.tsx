@@ -1,5 +1,5 @@
-import { button } from '~/components/ds/button';
-import { heading, lede } from '~/components/ds/text';
+import { button } from '~/components/styles/button';
+import { heading, lede } from '~/components/styles/text';
 import type { Route } from './+types/home';
 
 export function meta({}: Route.MetaArgs) {
