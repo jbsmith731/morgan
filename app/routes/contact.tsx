@@ -10,6 +10,7 @@ import { getInputProps, Input } from '~/components/ds/Input';
 import { Textarea } from '~/components/ds/Textarea';
 import { button } from '~/components/styles/button';
 import { copy, heading } from '~/components/styles/text';
+import { createMetaTitle } from '~/helpers/seo.helpers';
 import type { Route } from './+types/contact';
 
 export async function action({ request }: Route.ActionArgs) {
@@ -40,7 +41,7 @@ export default function Contact() {
 
   return (
     <main className="constrain py-20">
-      <title>Contact</title>
+      <title>{createMetaTitle('Contact')}</title>
 
       <div className="grid gap-8 md:grid-cols-2">
         <div className="grid gap-2 self-start">
@@ -73,7 +74,7 @@ export default function Contact() {
             {(field) => {
               return (
                 <FieldRoot>
-                  <FieldLabel htmlFor="email">Email</FieldLabel>
+                  <FieldLabel htmlFor="email">Business email</FieldLabel>
                   <Input
                     {...getInputProps(field)}
                     type="email"
@@ -175,7 +176,7 @@ const ContactSchema = z.object({
     .email('Invalid email address')
     .refine(
       (email) => !BLOCKED_DOMAINS.includes(email.split('@')[1]?.toLowerCase()),
-      'Please use a corporate email address',
+      'Please use a business email address',
     ),
   company: z.string().transform((val) => (val === '' ? undefined : val)),
   message: z.string().transform((val) => (val === '' ? undefined : val)),

@@ -1,13 +1,7 @@
 import { button } from '~/components/styles/button';
 import { heading, lede } from '~/components/styles/text';
+import { TITLE } from '~/constants/seo.constants';
 import type { Route } from './+types/home';
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: 'Morgan Smith' },
-    { name: 'description', content: 'Content' },
-  ];
-}
 
 export function loader({ context }: Route.LoaderArgs) {
   return { message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE };
@@ -16,6 +10,7 @@ export function loader({ context }: Route.LoaderArgs) {
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <main className="constrain place-self-center grid items-center justify-center text-center gap-4">
+      <title>{TITLE}</title>
       <section className="py-20 grid gap-5">
         <div className="grid gap-2">
           <h1 className={heading({ level: 'mega' })}>{loaderData.message}</h1>
