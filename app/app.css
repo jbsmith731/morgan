@@ -128,8 +128,7 @@
   width: min(75rem, 100vw - theme(spacing.10));
 }
 
-html,
-body {
+html {
   @apply bg-ds-surface-app text-ds-text-secondary;
 }
 
