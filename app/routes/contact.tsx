@@ -24,7 +24,6 @@ export async function action({ request, context }: Route.ActionArgs) {
 
   try {
     const validated = await serverValidate(formData);
-    // Remove this line to enable email sending
 
     if (RESEND_DISABLED !== 'true') {
       const resend = new Resend(RESEND_API_KEY);

@@ -121,12 +121,12 @@
   --color-ds-error: var(--color-red-50);
   --color-ds-success: var(--color-green-50);
 
-  /* Borders */
-  --color-ds-border-default: var(--color-slate-300);
-  --color-ds-border-strong: var(--color-slate-400);
-  --color-ds-border-focus: var(--color-ds-accent);
-  --color-ds-border-error: var(--color-red-400);
-  --color-ds-border-success: var(--color-green-500);
+  /* Strokes */
+  --color-ds-stroke-default: var(--color-slate-300);
+  --color-ds-stroke-strong: var(--color-slate-400);
+  --color-ds-stroke-focus: var(--color-ds-accent);
+  --color-ds-stroke-error: var(--color-red-400);
+  --color-ds-stroke-success: var(--color-green-500);
 }
 
 @utility constrain {
