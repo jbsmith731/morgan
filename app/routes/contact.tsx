@@ -4,6 +4,7 @@ import {
   ServerValidateError,
 } from '@tanstack/react-form-remix';
 import { data, Form } from 'react-router';
+import { Resend } from 'resend';
 import z from 'zod';
 import { FieldInfo, FieldLabel, FieldRoot } from '~/components/ds/Field';
 import { getInputProps, Input } from '~/components/ds/Input';
@@ -13,21 +14,40 @@ import { copy, heading } from '~/components/styles/text';
 import { createMetaTitle } from '~/helpers/seo.helpers';
 import type { Route } from './+types/contact';
 
-export async function action({ request }: Route.ActionArgs) {
+export async function action({ request, context }: Route.ActionArgs) {
   const formData = await request.formData();
+  const { RESEND_API_KEY, RESEND_TO, RESEND_FROM, RESEND_DISABLED } =
+    context.cloudflare.env;
 
   try {
     const validated = await serverValidate(formData);
 
-    return data(validated);
-  } catch (error) {
-    // Handle validation errors
-
-    if (error instanceof ServerValidateError) {
-      return data(error.formState, { status: 400 });
+    if (RESEND_DISABLED !== 'true') {
+      const resend = new Resend(RESEND_API_KEY);
+      const { error } = await resend.emails.send({
+        from: `Send <${RESEND_FROM}>`,
+        to: RESEND_TO,
+        subject: 'New Contact Form Submission',
+        html: createEmailBody(validated),
+        replyTo: `${validated.name} <${validated.email}>`,
+      });
+    } else {
+      console.log('Resend is disabled. Form submission data:', validated);
     }
 
-    return new Response('Form submission failed', { status: 400 });
+    return data(validated);
+  } catch (error) {
+    if (error instanceof ServerValidateError) {
+      return data(
+        { type: 'VALIDATION', error: error.formState },
+        { status: 400 },
+      );
+    }
+
+    return data(
+      { type: 'UNKNOWN', error: 'Form submission failed' },
+      { status: 500 },
+    );
   }
 }
 
@@ -181,3 +201,12 @@ const ContactSchema = z.object({
   company: z.string().transform((val) => (val === '' ? undefined : val)),
   message: z.string().transform((val) => (val === '' ? undefined : val)),
 });
+
+function createEmailBody(values: Awaited<ReturnType<typeof serverValidate>>) {
+  return `<strong>Name:</strong> ${values.name}<br />
+<strong>Email:</strong> ${values.email}<br />
+<strong>Company:</strong> ${values.company || 'N/A'}<br />
+<strong>Message:</strong> ${values.message || 'N/A'}<br />
+
+<p style="font-size: 12px;">${new Date().toLocaleString()}</p>`;
+}
