@@ -4,7 +4,7 @@ import {
   ServerValidateError,
   useTransform,
 } from '@tanstack/react-form-remix';
-import { data, Form, useActionData } from 'react-router';
+import { data, Form, useActionData, useNavigation } from 'react-router';
 import { Resend } from 'resend';
 import { twMerge } from 'tailwind-merge';
 import z from 'zod';
@@ -114,6 +114,8 @@ function ContactSuccess() {
 
 function ContactForm() {
   const actionData = useActionData<typeof action>();
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
   const form = useForm({
     ...contactOptions,
     validators: {
@@ -206,9 +208,10 @@ function ContactForm() {
 
       <button
         type="submit"
+        disabled={isSubmitting}
         className={button({ className: 'place-self-start' })}
       >
-        Submit
+        {isSubmitting ? 'Submitting...' : 'Submit'}
       </button>
     </Form>
   );
