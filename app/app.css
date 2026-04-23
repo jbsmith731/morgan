@@ -110,17 +110,23 @@
   --color-ds-text-disabled: var(--color-slate-400);
   --color-ds-text-inverse: var(--color-slate-50);
   --color-ds-text-error: var(--color-red-500);
+  --color-ds-text-error-strong: var(--color-red-700);
+  --color-ds-text-success: var(--color-green-600);
 
   /* Backgrounds */
   --color-ds-surface-app: var(--color-slate-50);
   --color-ds-surface-base: #ffffff;
   --color-ds-surface-subtle: var(--color-slate-100);
   --color-ds-surface-raised: #e9eef6;
+  --color-ds-error: var(--color-red-50);
+  --color-ds-success: var(--color-green-50);
 
   /* Borders */
-  --color-ds-border-default: var(--color-slate-200);
-  --color-ds-border-strong: var(--color-slate-300);
+  --color-ds-border-default: var(--color-slate-300);
+  --color-ds-border-strong: var(--color-slate-400);
   --color-ds-border-focus: var(--color-ds-accent);
+  --color-ds-border-error: var(--color-red-400);
+  --color-ds-border-success: var(--color-green-500);
 }
 
 @utility constrain {

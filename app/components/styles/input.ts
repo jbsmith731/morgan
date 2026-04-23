@@ -4,5 +4,5 @@ export const inputBase = [
   // focus
   'focus:outline-none focus:ring-2 focus:ring-ds-accent focus:border-transparent',
   // error
-  'aria-invalid:border-ds-text-error aria-invalid:focus-visible:ring-ds-text-error/40',
+  'aria-invalid:border-ds-border-error aria-invalid:focus-visible:ring-ds-border-error',
 ];
