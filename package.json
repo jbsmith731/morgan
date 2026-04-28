@@ -9,7 +9,8 @@
     "dev": "react-router dev",
     "postinstall": "npm run cf-typegen",
     "preview": "npm run build && vite preview",
-    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
+    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
+    "test": "vitest"
   },
   "dependencies": {
     "@tanstack/react-form": "^1.29.0",
@@ -36,6 +37,7 @@
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
     "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.1.5",
     "wrangler": "^4.40.2"
   }
 }

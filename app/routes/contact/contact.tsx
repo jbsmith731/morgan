@@ -257,7 +257,7 @@ const BLOCKED_DOMAINS = [
   'proton.me',
 ];
 
-const ContactSchema = z.object({
+export const ContactSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   email: z
     .email('Invalid email address')
